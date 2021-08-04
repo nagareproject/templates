@@ -4,7 +4,7 @@ import sys
 name = '{{ cookiecutter.project_name }}'
 here = os.getcwd()
 
-print()
+print('')
 print('-' * 10)
 print("Application '{}' created.\n".format(name))
 

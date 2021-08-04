@@ -17,19 +17,19 @@ def render(self, h, *args):
 
     h.head << h.head.title('Up and Running!')
 
-    h.head.css_url('/static/nagare/css/application.css')
+    h.head.css_url('nagare/css/application.css')
     h.head.css(
         'defaultapp',
         '''#main {
                margin-left: 20px;
                padding-bottom: 100px;
-               background: url(/static/nagare/img/sakura.jpg) no-repeat 123px 100%%;
+               background: url(nagare/img/sakura.jpg) no-repeat 123px 100%%;
         }'''
     )
 
     with h.div(id='body'):
         h << h.a(
-            h.img(src='/static/nagare/img/logo.png'),
+            h.img(src='nagare/img/logo.png'),
             id='logo',
             href=NAGARE, title='Nagare home'
         )
