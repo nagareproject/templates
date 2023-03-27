@@ -17,7 +17,7 @@ setup(
     package_data={'': ['*.cfg']},
     zip_safe=False,
     install_requires=[
-        'nagare>=0.6.*',
+        'nagare>=0.6b2',
         'nagare-publishers-gunicorn',
         'nagare-sessions-memory'
     ],
