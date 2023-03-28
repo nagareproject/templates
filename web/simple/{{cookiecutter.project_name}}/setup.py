@@ -16,14 +16,10 @@ setup(
     include_package_data=True,
     package_data={'': ['*.cfg']},
     zip_safe=False,
-    install_requires=[
-        'nagare>=0.6b2',
-        'nagare-publishers-gunicorn',
-        'nagare-sessions-memory'
-    ],
+    install_requires=['nagare>=0.6b2', 'nagare-publishers-gunicorn', 'nagare-sessions-memory'],
+    extras_require={'dev': ['nagare-services-reloader']},
     entry_points="""
     [nagare.applications]
     {{ cookiecutter.project_name }} = {{ cookiecutter.project_name }}.app:App
-    """
+    """,
 )
-
