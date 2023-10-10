@@ -2,11 +2,11 @@ from nagare.server import application
 from nagare import component, presentation
 
 
-class {{ cookiecutter.project_name|capitalize }}:
+class {{context.project_name|capitalize}}:
     pass
 
 
-@presentation.render_for({{ cookiecutter.project_name|capitalize }})
+@presentation.render_for({{context.project_name|capitalize}})
 def render(self, h, *args):
     NAGARE = 'http://www.nagare.org/'
     NAGARE_DOC = NAGARE + 'doc/'
@@ -17,19 +17,11 @@ def render(self, h, *args):
 
     h.head << h.head.title('Up and Running!')
 
-    h.head.css_url('nagare/css/application.css')
-    h.head.css(
-        'defaultapp',
-        '''#main {
-               margin-left: 20px;
-               padding-bottom: 100px;
-               background: url(nagare/img/sakura.jpg) no-repeat 123px 100%%;
-        }'''
-    )
+    h.head.css_url('app.css')
 
     with h.div(id='body'):
         h << h.a(
-            h.img(src='nagare/img/logo.png'),
+            h.img(src='img/logo.png'),
             id='logo',
             href=NAGARE, title='Nagare home'
         )
@@ -73,13 +65,10 @@ def render(self, h, *args):
                         h << h.li(h.a('Demonstrations', href=NAGARE + 'demo'))
                         h << h.li(h.a('Wiki Tutorial', href=NAGARE + 'wiki'))
 
-    return h.root
-
 # ---------------------------------------------------------------
 
 
 class App(application.App):
 
     def create_root(self):
-        return component.Component({{ cookiecutter.project_name|capitalize }}())
-
+        return component.Component({{context.project_name|capitalize}}())

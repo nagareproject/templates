@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
-VERSION = '{{ cookiecutter.version }}'
+VERSION = '{{context.version}}'
 
 
 setup(
-    name='{{ cookiecutter.project_name }}',
+    name='{{context.project_name}}',
     version=VERSION,
     author='',
     author_email='',
@@ -20,6 +20,6 @@ setup(
     extras_require={'dev': ['nagare-services-reloader']},
     entry_points="""
     [nagare.applications]
-    {{ cookiecutter.project_name }} = {{ cookiecutter.project_name }}.app:App
+    {{context.project_name}} = {{context.project_name}}.app:App
     """,
 )
