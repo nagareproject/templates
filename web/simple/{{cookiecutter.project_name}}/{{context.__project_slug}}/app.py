@@ -2,12 +2,12 @@ from nagare.server import application
 from nagare import component, presentation
 
 
-class {{context.project_name|capitalize}}:
+class {{context.__class_name}}:
     pass
 
 
-@presentation.render_for({{context.project_name|capitalize}})
-def render(self, h, *args):
+@presentation.render_for({{context.__class_name}})
+def render_{{context.__project_slug}}(self, h, *args):
     NAGARE = 'http://www.nagare.org/'
     NAGARE_DOC = NAGARE + 'doc/'
 
@@ -20,11 +20,7 @@ def render(self, h, *args):
     h.head.css_url('app.css')
 
     with h.div(id='body'):
-        h << h.a(
-            h.img(src='img/logo.png'),
-            id='logo',
-            href=NAGARE, title='Nagare home'
-        )
+        h << h.a(h.img(src='img/logo.png'), id='logo', href=NAGARE, title='Nagare home')
 
         with h.div(id='content'):
             h << h.div('Congratulations!', id='title')
@@ -65,10 +61,10 @@ def render(self, h, *args):
                         h << h.li(h.a('Demonstrations', href=NAGARE + 'demo'))
                         h << h.li(h.a('Wiki Tutorial', href=NAGARE + 'wiki'))
 
+
 # ---------------------------------------------------------------
 
 
 class App(application.App):
-
     def create_root(self):
-        return component.Component({{context.project_name|capitalize}}())
+        return component.Component({{context.__class_name}}())

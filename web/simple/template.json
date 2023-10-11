@@ -1,4 +1,6 @@
 {
     "project_name": "simple",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "__project_slug": "{{context.project_name|snakecase}}",
+    "__class_name": "{{context.project_name|camelcase}}"
 }

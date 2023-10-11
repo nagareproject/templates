@@ -4,7 +4,7 @@ VERSION = '{{context.version}}'
 
 
 setup(
-    name='{{context.project_name}}',
+    name='{{context.__project_slug}}',
     version=VERSION,
     author='',
     author_email='',
@@ -20,6 +20,6 @@ setup(
     extras_require={'dev': ['nagare-services-reloader']},
     entry_points="""
     [nagare.applications]
-    {{context.project_name}} = {{context.project_name}}.app:App
+    {{context.__project_slug}} = {{context.__project_slug}}.app:App
     """,
 )
